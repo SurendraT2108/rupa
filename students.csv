@@ -1,0 +1,9 @@
+Name,Department,StudentID,Course,Grade,Status
+Rahul Sharma,Computer Science,CS101,Data Structures,A,Active
+Anjali Verma,Electronics,EC102,Signals,B,Active
+Kiran Kumar,Mechanical,ME103,Thermodynamics,C,Inactive
+Sneha Reddy,Computer Science,CS104,Algorithms,A+,Active
+Arjun Patel,Civil,CE105,Structural Engineering,B+,Active
+Meera Nair,Electronics,EC106,Microprocessors,A,Active
+Vikram Singh,Mechanical,ME107,Fluid Mechanics,B,Inactive
+Pooja Das,Computer Science,CS108,Operating Systems,A,Active
