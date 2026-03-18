@@ -1,58 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dashboard</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+<meta charset="UTF-8">
+<title>Modern Dashboard</title>
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+}
+
+h1 {
+    color: white;
+}
+
+/* FORM CARD */
+.form-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    width: 200px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* TABLE CARD */
+.table-card {
+    margin-top: 30px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #667eea;
+    color: white;
+    padding: 12px;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background: #f4f4f4;
+}
+
+tr:hover {
+    background: #e0e7ff;
+    transition: 0.3s;
+}
+
+/* STATUS COLORS */
+.active {
+    color: green;
+    font-weight: bold;
+}
+
+.inactive {
+    color: red;
+    font-weight: bold;
+}
+</style>
 </head>
+
 <body>
-  <div class="container">
-    <h1 class="page-title">Dashboard</h1>
 
-    <form method="POST" action="/" class="search-form">
-      <div class="input-group">
-        <label>Name:</label>
-        <input type="text" name="name" placeholder="Enter Name" />
-      </div>
+<div class="container">
+    <h1>📊 Student Dashboard</h1>
 
-      <div class="input-group">
-        <label>Department:</label>
-        <input type="text" name="department" placeholder="Enter Department" />
-      </div>
-
-      <button type="submit" class="btn-submit">Enter</button>
-    </form>
-
-    {% if students %}
-    <h2 class="section-title">Student Details</h2>
-    <div class="table-wrapper">
-      <table class="students-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Department</th>
-            <th>Student ID</th>
-            <th>Course</th>
-            <th>Grade</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for student in students %}
-          <tr>
-            <td>{{ student.Name }}</td>
-            <td>{{ student.Department }}</td>
-            <td>{{ student.StudentID }}</td>
-            <td>{{ student.Course }}</td>
-            <td>{{ student.Grade }}</td>
-            <td>{{ student.Status }}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+    <div class="form-card">
+        <input type="text" placeholder="Enter Name">
+        <input type="text" placeholder="Enter Department">
+        <button>Add</button>
     </div>
-    {% endif %}
-  </div>
+
+    <div class="table-card">
+        <h2>Student Details</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Department</th>
+                <th>ID</th>
+                <th>Course</th>
+                <th>Grade</th>
+                <th>Status</th>
+            </tr>
+
+            <tr>
+                <td>Rahul Sharma</td>
+                <td>CS</td>
+                <td>CS101</td>
+                <td>Data Structures</td>
+                <td>A</td>
+                <td class="active">Active</td>
+            </tr>
+
+            <tr>
+                <td>Kiran Kumar</td>
+                <td>Mechanical</td>
+                <td>ME103</td>
+                <td>Thermodynamics</td>
+                <td>C</td>
+                <td class="inactive">Inactive</td>
+            </tr>
+
+        </table>
+    </div>
+
+</div>
+
 </body>
 </html>
