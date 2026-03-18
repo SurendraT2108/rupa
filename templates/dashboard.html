@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="page-title">Dashboard</h1>
+
+    <form method="POST" action="/" class="search-form">
+      <div class="input-group">
+        <label>Name:</label>
+        <input type="text" name="name" placeholder="Enter Name" />
+      </div>
+
+      <div class="input-group">
+        <label>Department:</label>
+        <input type="text" name="department" placeholder="Enter Department" />
+      </div>
+
+      <button type="submit" class="btn-submit">Enter</button>
+    </form>
+
+    {% if students %}
+    <h2 class="section-title">Student Details</h2>
+    <div class="table-wrapper">
+      <table class="students-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Student ID</th>
+            <th>Course</th>
+            <th>Grade</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for student in students %}
+          <tr>
+            <td>{{ student.Name }}</td>
+            <td>{{ student.Department }}</td>
+            <td>{{ student.StudentID }}</td>
+            <td>{{ student.Course }}</td>
+            <td>{{ student.Grade }}</td>
+            <td>{{ student.Status }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>
